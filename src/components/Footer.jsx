@@ -18,7 +18,17 @@ const Footer = () => {
         )}
       </button>
       <footer>
-        <p className="mb-4 text-center">Made with love by nerdy-guy</p>
+        <p className="mb-4 text-center">
+          Made with <span className="text-red-500">❤</span> by{" "}
+          <a
+            href="https://github.com/nerdy-guy"
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            nerdy-guy
+          </a>
+        </p>
       </footer>
     </div>
   );

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import tvshowplaceholder from "../assets/tvshow-placeholder.jpg";
+import tvShowPlaceholder from "../assets/tvshow-placeholder.jpg";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
@@ -70,7 +70,7 @@ const TVShows = () => {
         >
           <Link to={`/${show.id}`}>
             <img
-              src={show?.image?.original || tvshowplaceholder}
+              src={show?.image?.original || tvShowPlaceholder}
               alt={show?.name}
               className="h-60 max-h-[16rem] w-60 max-w-[9rem] dark:focus:outline-transparent md:max-w-[11rem]"
             />
@@ -85,7 +85,7 @@ const TVShows = () => {
                   {show?.name}
                 </Link>{" "}
                 ({show?.premiered?.slice(0, -6)} -{" "}
-                {show?.ended?.slice(0, -6) || "present"})
+                {show?.ended?.slice(0, -6) || "Present"})
               </div>
             ) : (
               <Link

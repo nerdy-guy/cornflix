@@ -4,6 +4,7 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import tvShowPlaceholder from "../assets/tvshow-placeholder.jpg";
 
 const TVShow = () => {
   const [tvShow, setTVShow] = useState([]);
@@ -46,15 +47,18 @@ const TVShow = () => {
     <div className="flex min-h-screen flex-col justify-between dark:bg-zinc-900 dark:text-gray-300">
       <div className="mx-10 my-10 flex flex-col gap-8 md:mx-20 lg:flex-row">
         <img
-          src={image?.original}
+          src={image?.original || tvShowPlaceholder}
           alt={name}
           className="h-auto w-60 rounded md:w-96"
         />
         <div className="flex flex-col gap-2 md:text-lg lg:text-2xl">
-          <h1 className="font-bold">
-            {name} ({premiered?.slice(0, -6)} - {ended?.slice(0, -6)})
-          </h1>
-          {rating?.average && <p>Rating: {rating?.average}</p>}
+          {name && (
+            <h1 className="font-bold">
+              {name} ({premiered?.slice(0, -6) || "In Development"} -{" "}
+              {ended?.slice(0, -6) || "Present"})
+            </h1>
+          )}
+          {rating?.average && <p>TVmaze Rating: {rating?.average}</p>}
           {runtime && <p>Runtime: {runtime}m</p>}
           {summary && (
             <p className="max-w-lg lg:max-w-4xl">
@@ -70,7 +74,7 @@ const TVShow = () => {
           {language && <p>Language: {language}</p>}
           {premiered && <p>Premiered: {premiered}</p>}
           {ended && <p>Ended: {ended}</p>}
-          {status === "Running" ||
+          {(status && status === "Running") ||
           status === "In Development" ||
           status === "To Be Determined" ? (
             <p>
@@ -84,7 +88,12 @@ const TVShow = () => {
           {network?.name && <p>Network: {network?.name}</p>}
           <p>
             Official Site:{" "}
-            <a href={officialSite} className="text-blue-500">
+            <a
+              href={officialSite}
+              rel="noreferrer"
+              target="_blank"
+              className="text-blue-500 hover:underline"
+            >
               {name}
             </a>
           </p>
