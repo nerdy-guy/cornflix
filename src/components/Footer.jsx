@@ -9,7 +9,7 @@ const Footer = () => {
     <div>
       <button
         onClick={toggleTheme}
-        className="fixed bottom-6 right-6 rounded-full bg-blue-400 p-2 dark:bg-blue-500 md:right-10"
+        className="fixed bottom-6 right-6 rounded-full bg-blue-400 p-2 dark:bg-blue-500 dark:focus:outline-transparent md:right-10"
       >
         {theme === "dark" ? (
           <HiOutlineSun className="h-6 w-6" />

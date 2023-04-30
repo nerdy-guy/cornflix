@@ -44,10 +44,13 @@ const TVShows = () => {
         <form onSubmit={handleQuery} className="mt-72 flex justify-center">
           <input
             type="search"
-            placeholder="Search"
-            className="w-2/3 rounded-l bg-gray-300 p-2 dark:bg-zinc-800 dark:text-white dark:focus:outline-transparent md:w-3/12"
+            placeholder="Search TV Shows"
+            className="o w-2/3 rounded-l bg-gray-300 p-2 dark:bg-zinc-800 dark:text-white dark:focus:outline-transparent md:w-8/12 md:max-w-lg"
           />
-          <button type="submit" className="rounded-r bg-blue-500 px-6">
+          <button
+            type="submit"
+            className="rounded-r bg-blue-500 px-6 dark:focus:outline-transparent"
+          >
             <HiOutlineSearch />
           </button>
         </form>
@@ -59,12 +62,12 @@ const TVShows = () => {
           >
             <input
               type="search"
-              placeholder="Search"
-              className="w-2/3 rounded-l bg-gray-300 p-2 dark:bg-zinc-800 dark:text-white dark:focus:outline-transparent md:w-3/12"
+              placeholder="Search Search TV Shows"
+              className="w-2/3 rounded-l bg-gray-300 p-2 dark:bg-zinc-800 dark:text-white dark:focus:outline-transparent md:w-8/12 md:max-w-lg"
             />
             <button
               type="submit"
-              className="rounded-r bg-blue-500 px-6 focus:outline-transparent"
+              className="rounded-r bg-blue-500 px-6 dark:focus:outline-transparent"
             >
               <HiOutlineSearch />
             </button>
@@ -72,14 +75,14 @@ const TVShows = () => {
 
           {tvShows.map(({ show }) => (
             <div
-              className="mx-6 mb-4 flex gap-4 border-b border-b-gray-400 dark:text-gray-300 md:mx-40"
+              className="mx-6 mb-4 flex max-w-7xl gap-4 border-b border-b-gray-400 dark:text-gray-300 lg:mx-40"
               key={show.id}
             >
               <Link to={`/${show.id}`}>
                 <img
                   src={show?.image?.original || tvshowplaceholder}
                   alt={show?.name}
-                  className="h-60 max-h-[16rem] w-60 max-w-[9rem] md:max-w-[11rem]"
+                  className="h-60 max-h-[16rem] w-60 max-w-[9rem] dark:focus:outline-transparent md:max-w-[11rem]"
                 />
               </Link>
               <div className="flex flex-col gap-2">
